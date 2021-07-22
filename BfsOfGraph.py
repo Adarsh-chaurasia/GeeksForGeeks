@@ -1,17 +1,20 @@
-class Solution:
-    
-    #Function to return Breadth First Traversal of given graph.
-    def bfsOfGraph(self, V, adj):
-        visited = [False] * (V + 1)
-        queue = []
-        queue.append(0)
-        visited[0] = True
+def bfsOfGraph(self, V, adj):
+        visited=[False]*(V)
+        
         output=[]
+        
+        queue=[]
+        
+        queue.append(0)
+        visited[0]=True
+        
         while queue:
-            s = queue.pop(0)
+            s=queue.pop(0)
             output.append(s)
-            for i in adj[s]:
-                if visited[i] == False:
-                    queue.append(i)
-                    visited[i] = True
+            
+            for node in adj[s]:
+                if not visited[node]:
+                    queue.append(node)
+                    visited[node]=True
+                    
         return output
